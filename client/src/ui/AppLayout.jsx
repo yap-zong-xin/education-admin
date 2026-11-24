@@ -6,7 +6,7 @@ function AppLayout() {
         <div className="min-h-screen bg-gray-100">
             <Header />
 
-            <main className="mx-auto w-full max-w-7xl px-6 py-8">
+            <main className="mx-auto w-full max-w-6xl py-8">
                 <Outlet />
             </main>
         </div>
