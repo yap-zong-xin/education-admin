@@ -1,5 +1,11 @@
 function Teachers() {
-    return <div>Teachers</div>;
+    return (
+        <div>
+            <p className="text-2xl font-extrabold text-[#333333]">
+                Add Teacher
+            </p>
+        </div>
+    )
 }
 
-export default Teachers;
+export default Teachers
