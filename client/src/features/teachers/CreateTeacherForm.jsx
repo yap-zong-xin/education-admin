@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
+import { SUBJECTS } from '../../utils/constants'
+import { useCreateTeacher } from './useCreateTeacher'
 
 import Button from '../../ui/Button'
 import Card from '../../ui/Card'
 import Input from '../../ui/Input'
 import Select from '../../ui/Select'
 
-import { SUBJECTS } from '../../utils/constants'
-
 function CreateTeacherForm() {
     const navigate = useNavigate()
+    const { createTeacher, isCreating, error } = useCreateTeacher()
 
     const {
         register,
@@ -19,7 +20,11 @@ function CreateTeacherForm() {
     } = useForm()
 
     function onSubmit(data) {
-        console.log(data)
+        createTeacher(data, {
+            onSuccess: () => {
+                navigate('/teachers')
+            },
+        })
     }
 
     return (
@@ -92,6 +97,7 @@ function CreateTeacherForm() {
                 <Button
                     type="button"
                     onClick={() => navigate(-1)}
+                    disabled={isCreating}
                     className="border border-primary text-primary hover:bg-gray-200"
                 >
                     <ArrowLeftIcon className="size-5" /> Back
@@ -99,9 +105,10 @@ function CreateTeacherForm() {
 
                 <Button
                     type="submit"
+                    disabled={isCreating}
                     className="bg-primary text-white hover:bg-primary-hover"
                 >
-                    Add Teacher
+                    {isCreating ? 'Adding Teacher...' : 'Add Teacher'}
                 </Button>
             </div>
         </form>
