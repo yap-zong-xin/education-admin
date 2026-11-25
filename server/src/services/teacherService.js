@@ -1,4 +1,7 @@
-import { insertTeacher } from "../repositories/teacherRepository.js";
+import {
+    insertTeacher,
+    findAllTeachers,
+} from "../repositories/teacherRepository.js";
 import { AppError } from "../utils/AppError.js";
 import { PG_ERROR_CODES } from "../utils/constants.js";
 
@@ -14,4 +17,8 @@ export async function registerTeacher(teacher) {
 
         throw error;
     }
+}
+
+export async function getAllTeachers() {
+    return await findAllTeachers();
 }

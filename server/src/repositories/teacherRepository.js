@@ -15,3 +15,15 @@ export async function insertTeacher(teacher) {
 
     return result.rows[0];
 }
+
+export async function findAllTeachers() {
+    const query = `
+        SELECT name, subject, email, contact AS "contactNumber"
+        FROM teachers
+        ORDER BY id ASC
+    `;
+
+    const result = await pool.query(query);
+
+    return result.rows;
+}
