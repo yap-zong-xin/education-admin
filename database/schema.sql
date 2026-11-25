@@ -3,7 +3,7 @@ CREATE TABLE teachers (
     name TEXT NOT NULL,
     subject TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
-    contact_number TEXT NOT NULL,
+    contact TEXT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
