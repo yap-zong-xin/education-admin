@@ -7,7 +7,9 @@ export async function registerTeacher(teacher) {
         return await insertTeacher(teacher);
     } catch (error) {
         if (error.code === PG_ERROR_CODES.UNIQUE_VIOLATION) {
-            throw AppError.conflict("Email already exists.");
+            throw AppError.conflict("Email already exists.", {
+                cause: error,
+            });
         }
 
         throw error;
