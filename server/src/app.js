@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 
 import teacherRoutes from "./routes/teacherRoutes.js";
+import classRoutes from "./routes/classRoutes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { AppError } from "./utils/AppError.js";
 
@@ -17,9 +18,12 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/teachers", teacherRoutes);
+app.use("/api/classes", classRoutes);
+
 app.use((req, res, next) => {
     next(AppError.notFound("Route not found."));
 });
+
 app.use(errorHandler);
 
 export default app;

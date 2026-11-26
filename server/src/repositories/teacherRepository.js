@@ -27,3 +27,15 @@ export async function findAllTeachers() {
 
     return result.rows;
 }
+
+export async function findTeacherByEmail(email) {
+    const query = `
+        SELECT id, name, email
+        FROM teachers
+        WHERE email = $1
+    `;
+
+    const result = await pool.query(query, [email]);
+
+    return result.rows[0];
+}
