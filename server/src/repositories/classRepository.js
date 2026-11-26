@@ -15,3 +15,19 @@ export async function insertClass(classData) {
 
     return result.rows[0];
 }
+
+export async function findAllClasses() {
+    const query = `
+        SELECT
+            c.level,
+            c.name,
+            t.name AS "teacherName"
+        FROM classes c
+        JOIN teachers t ON c.teacher_id = t.id
+        ORDER BY c.id ASC
+    `;
+
+    const result = await pool.query(query);
+
+    return result.rows;
+}

@@ -1,4 +1,7 @@
-import { insertClass } from "../repositories/classRepository.js";
+import {
+    insertClass,
+    findAllClasses,
+} from "../repositories/classRepository.js";
 import { findTeacherByEmail } from "../repositories/teacherRepository.js";
 import { AppError } from "../utils/AppError.js";
 import { PG_ERROR_CODES } from "../utils/constants.js";
@@ -28,4 +31,16 @@ export async function registerClass(classData) {
 
         throw error;
     }
+}
+
+export async function getAllClasses() {
+    const classes = await findAllClasses();
+
+    return classes.map((classData) => ({
+        level: classData.level,
+        name: classData.name,
+        formTeacher: {
+            name: classData.teacherName,
+        },
+    }));
 }
