@@ -1,7 +1,7 @@
 function Button({
     children,
     onClick,
-    className = ' ',
+    className = '',
     type = 'button',
     disabled = false,
 }) {
@@ -10,7 +10,7 @@ function Button({
             type={type}
             onClick={onClick}
             disabled={disabled}
-            className={`flex items-center gap-2 rounded-lg px-4 py-3 font-semibold hover:cursor-pointer ${className}`}
+            className={`flex cursor-pointer items-center justify-center gap-2 rounded-md px-4 py-2 font-semibold transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100 ${className}`}
         >
             {children}
         </button>

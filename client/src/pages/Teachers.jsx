@@ -5,12 +5,13 @@ import { useTeachers } from '../features/teachers/useTeachers'
 import Button from '../ui/Button'
 import Card from '../ui/Card'
 import TeacherTable from '../features/teachers/TeacherTable'
+import Spinner from '../ui/Spinner'
 
 function Teachers() {
     const navigate = useNavigate()
     const { isPending, teachers, error } = useTeachers()
 
-    if (isPending) return <p>Loading teachers...</p>
+    if (isPending) return <Spinner />
     if (error) return <p>{error.message}</p>
 
     console.log(teachers)

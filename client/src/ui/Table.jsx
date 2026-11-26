@@ -4,16 +4,16 @@ function Table({ columns, children }) {
     return (
         <Card className="p-8">
             <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
+                <table className="w-full min-w-200 table-fixed text-left text-sm">
                     <thead className="bg-gray-100">
                         <tr>
                             {columns.map((column) => (
                                 <th
-                                    key={column}
+                                    key={column.label}
                                     scope="col"
-                                    className="px-4 py-4 font-semibold"
+                                    className={`px-4 py-4 font-semibold ${column.width}`}
                                 >
-                                    {column}
+                                    {column.label}
                                 </th>
                             ))}
                         </tr>

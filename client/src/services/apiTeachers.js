@@ -23,7 +23,11 @@ export async function createTeacher(teacher) {
     const result = await response.json()
 
     if (!response.ok) {
-        throw new Error(result.error || 'Failed to register teacher.')
+        const error = new Error(result.error || 'Failed to register teacher.')
+
+        error.status = response.status
+
+        throw error
     }
 
     return result.data
