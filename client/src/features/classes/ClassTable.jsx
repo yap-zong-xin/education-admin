@@ -13,7 +13,7 @@ function ClassTable({ classes }) {
         >
             {classes.map((c, index) => (
                 <TableRow
-                    key={c.index}
+                    key={index}
                     values={[index + 1, c.level, c.name, c.formTeacher.name]}
                 />
             ))}

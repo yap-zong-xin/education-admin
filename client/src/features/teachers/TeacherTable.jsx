@@ -7,9 +7,9 @@ function TeacherTable({ teachers }) {
             columns={[
                 { label: '#', width: 'w-[10%]' },
                 { label: 'Name', width: 'w-[20%]' },
-                { label: 'Subject', width: 'w-[27%]' },
+                { label: 'Subject', width: 'w-[25%]' },
                 { label: 'Email', width: 'w-[25%]' },
-                { label: 'Work Contact', width: 'w-[18%]' },
+                { label: 'Work Contact', width: 'w-[20%]' },
             ]}
         >
             {teachers.map((teacher, index) => (

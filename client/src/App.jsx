@@ -7,6 +7,7 @@ import AppLayout from './ui/AppLayout'
 import Teachers from './pages/Teachers'
 import Classes from './pages/Classes'
 import AddTeacher from './pages/AddTeacher'
+import AddClass from './pages/AddClass'
 
 export default function App() {
     return (
@@ -35,6 +36,7 @@ export default function App() {
                         <Route path="classes" element={<Classes />} />
                         <Route path="teachers" element={<Teachers />} />
                         <Route path="teachers/add" element={<AddTeacher />} />
+                        <Route path="classes/add" element={<AddClass />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
